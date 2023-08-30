@@ -10,7 +10,7 @@ def calculate_parity(bits):
     
     # Check if the parity is correct
     if parity_bit == expected_parity_bit:
-        parity_type = "par" if expected_parity_bit == '1' else "ímpar"
+        parity_type = "ímpar" if expected_parity_bit == '1' else "par"
         return True, parity_type
     else:
         return False, None
@@ -27,15 +27,15 @@ def main():
         print("Entrada inválida. Digite apenas 0s e 1s.")
         return
     
-    is_correct, parity_type = calculate_parity(binary_input)
+    is_incorrect, parity_type = calculate_parity(binary_input)
 
     print("\nNúmero binário digitado:", binary_input)
     print("Bit de paridade:", binary_input[-1])
 
-    if is_correct:
-        print(f"A paridade está correta. O bit de paridade {binary_input[-1]} corresponde a um número {parity_type}.")
+    if is_incorrect:
+        print(f"A paridade está errada. O bit de paridade {binary_input[-1]} corresponde a um número {parity_type}.")
     else:
-        print("A paridade está incorreta.")
+        print("A paridade está correta.")
 
 if __name__ == "__main__":
     main()
