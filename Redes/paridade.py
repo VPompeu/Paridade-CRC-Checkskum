@@ -2,32 +2,32 @@ def calculate_parity(bits):
     parity_bit = bits[-1]
     data_bits = bits[:-1]
     
-    # Count the number of ones in the data bits
+    # Conte o número de unidades nos bits de dados;
     ones_count = data_bits.count('1')
     
-    # Determine the expected parity bit based on parity type
+    # Determine o bit de paridade esperado com base no tipo de paridade;
     expected_parity_bit = '1' if ones_count % 2 == 0 else '0'
     
-    # Check if the parity is correct
+    # Faz verificação se a paridade está correta;
     if parity_bit == expected_parity_bit:
         parity_type = "ímpar" if expected_parity_bit == '1' else "par"
         return True, parity_type
     else:
         return False, None
-
+    # Aqui termina a verificação;
 def main():
-    max_bits = 100
+    max_bits = 100 #Determina um valor máximo de bits;
     binary_input = input(f"Digite um número binário de até {max_bits} bits (incluindo o bit de paridade): ")
 
-    if len(binary_input) > max_bits:
+    if len(binary_input) > max_bits: #Verifica se o número de bits digitados não excede o máximo de bits disponível;
         print("Número de bits excede o limite máximo.")
         return
     
-    if not all(bit == '0' or bit == '1' for bit in binary_input):
+    if not all(bit == '0' or bit == '1' for bit in binary_input): #Verificação para aceitar apenas números binários;
         print("Entrada inválida. Digite apenas 0s e 1s.")
         return
     
-    is_incorrect, parity_type = calculate_parity(binary_input)
+    is_incorrect, parity_type = calculate_parity(binary_input) #Verifica se a paridade esta correta de acordo com o binário inserido;
 
     print("\nNúmero binário digitado:", binary_input)
     print("Bit de paridade:", binary_input[-1])
