@@ -20,3 +20,4 @@ else:
 
     # Imprime o resultado do valor CRC32 formatado como hexadecimal com 8 caracteres.
     print(f"CRC32: {crc32_result:08X}")
+    
